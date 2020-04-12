@@ -51,7 +51,8 @@ function createUserArray(resultArray){
 	let  = newUserArray = [];
 	for(let user of resultArray){
 		let newUserObject = {}
-		newUserObject.img = user.picture.medium
+		newUserObject.mediumImg = user.picture.medium
+		newUserObject.largeImg = user.picture.large
 		newUserObject.name= user.name.first + " " + user.name.last 
 		newUserObject.email = user.email 
 		newUserObject.city = user.location.city
@@ -74,7 +75,7 @@ function createUserCards(userArray){
 
 		divCard.innerHTML += 
 		`<div class="card-img-container"> \
-			<img class="card-img" src="${user.img}" alt="profile picture">\
+			<img class="card-img" src="${user.mediumImg}" alt="profile picture">\
 		</div>`
 
 		divCard.innerHTML +=
@@ -119,7 +120,7 @@ function addModalCard(user){
 	`<div class="modal">\
         <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>\
         <div class="modal-info-container">\
-            <img class="modal-img" src="${user.img}" alt="profile picture">\
+            <img class="modal-img" src="${user.largeImg}" alt="profile picture">\
             <h3 id="name" class="modal-name cap">${user.name}</h3>\
             <p class="modal-text">${user.email}</p>\
             <p class="modal-text cap">${user.city}</p>\
