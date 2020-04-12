@@ -10,7 +10,7 @@ function checkStatus (response) {
 	}
 }
 
-//featches 12 results from the United States, Great Britain, Australia, and New Zealand
+//fetches 12 results from the United States, Great Britain, Australia, and New Zealand
 //checks that there's a response from the api
 //then it transforms the response string into JSON
 //then it uses the results of the JSON object to create an array of user objects with the needed data for the page
@@ -111,8 +111,6 @@ function cardListeners(){
 //when a card is clicked, it brings up a card with addtional details about the clicked user
 
 function addModalCard(user){
-
-	console.log('Add', user)
 	let modalContainer = document.createElement("DIV")
 	modalContainer.className = "modal-container"
 
@@ -198,9 +196,9 @@ function searchDirectory(input){
 	submitButton.addEventListener('click', (e)=>{
 		e.preventDefault();
 
-		const searchInput = document.getElementById('search-input').value;
+		const searchInput = document.getElementById('search-input').value.toLowerCase();
 		for (let cn of cardNames){
-			const match = cn.innerText.search(searchInput);
+			const match = cn.innerText.toLowerCase().search(searchInput);
 			if(match > -1){
 				cn.parentNode.parentNode.style.display = '';
 			} else {
